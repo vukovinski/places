@@ -9,14 +9,16 @@ using System.Net.Http.Json;
 
 using places.data;
 
-if (args.Length == 2)
+if (args.Length >= 2)
 {
-    var radius = 500.0;
+    var radius = 1000.0;
     var database = new PlacesDbContext();
     var latitude = double.Parse(args[0]);
     var longitude = double.Parse(args[1]);
+    var includedTypes = args.Length > 2 ? args[2] : null;
     var googlePlacesApiKey = "AIzaSyCC4FEYyCYRPNsHLQ-BePcK1lpmKTDeoxk";
     var googlePlacesApi = new Uri ("https://places.googleapis.com/v1/places:searchNearby");
+
 
     var requestData = new GooglePlacesRequest
     {
@@ -31,7 +33,8 @@ if (args.Length == 2)
                 },
                 radius = radius
             }
-        }
+        },
+        includedTypes = includedTypes != null ? [includedTypes] : []
     };
     var requestDataRaw = JsonSerializer.Serialize(requestData);
     var requestHttpClient = new HttpClient();

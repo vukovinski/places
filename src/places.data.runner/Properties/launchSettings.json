@@ -2,7 +2,7 @@
   "profiles": {
     "places.data.runner": {
       "commandName": "Project",
-      "commandLineArgs": "45,802413 15,708680"
+      "commandLineArgs": "45,802413 15,708680 restaurant"
     }
   }
 }

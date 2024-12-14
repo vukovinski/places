@@ -1,5 +1,6 @@
 ﻿public class GooglePlacesRequest
 {
+    public List<string> includedTypes { get; set; }
     public required GooglePlacesRequestLocationRestriction locationRestriction { get; set; }
 }
 
