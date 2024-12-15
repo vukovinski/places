@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Authorization;
 
 namespace places.web
 {
@@ -22,6 +23,7 @@ namespace places.web
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody] PlacesWebRequest placesWebRequest)
         {
             try
