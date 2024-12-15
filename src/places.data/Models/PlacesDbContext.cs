@@ -9,6 +9,7 @@ namespace places.data
 
         public DbSet<Place> Places { get; set; }
         public DbSet<RequestLog> RequestLog { get; set; }
+        public DbSet<UserAccount> UserAccounts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite(ConnectionString);
