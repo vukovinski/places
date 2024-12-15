@@ -5,23 +5,20 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F706E995-FC36-4388-BCDE-75BB3AE54C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "places.data", "src\places.data\places.data.csproj", "{39DB2648-D509-4CCC-A232-BA29E7B5DF91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "places.data", "src\places.data\places.data.csproj", "{39DB2648-D509-4CCC-A232-BA29E7B5DF91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "places.data.runner", "src\places.data.runner\places.data.runner.csproj", "{EABAFE31-CFE4-42AD-BCEB-2C9429B6C25E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "places.data.runner", "src\places.data.runner\places.data.runner.csproj", "{EABAFE31-CFE4-42AD-BCEB-2C9429B6C25E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "places.subscriber", "src\places.subscriber\places.subscriber.csproj", "{A646EB7F-6B85-4FFC-A50A-BA9AC8B60AA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "places.subscriber", "src\places.subscriber\places.subscriber.csproj", "{A646EB7F-6B85-4FFC-A50A-BA9AC8B60AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "places.web", "src\places.web\places.web.csproj", "{74F39E0C-C29F-4BD5-B3F5-4671D45FEF11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "places.web", "src\places.web\places.web.csproj", "{74F39E0C-C29F-4BD5-B3F5-4671D45FEF11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "places.lib", "src\places.lib\places.lib.csproj", "{BDEF7810-893F-4E7A-A7FA-3060C961A062}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "places.lib", "src\places.lib\places.lib.csproj", "{BDEF7810-893F-4E7A-A7FA-3060C961A062}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{39DB2648-D509-4CCC-A232-BA29E7B5DF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -44,6 +41,9 @@ Global
 		{BDEF7810-893F-4E7A-A7FA-3060C961A062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDEF7810-893F-4E7A-A7FA-3060C961A062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDEF7810-893F-4E7A-A7FA-3060C961A062}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{39DB2648-D509-4CCC-A232-BA29E7B5DF91} = {F706E995-FC36-4388-BCDE-75BB3AE54C64}
