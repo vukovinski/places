@@ -12,12 +12,12 @@ using places.data;
 if (args.Length >= 2)
 {
     var radius = 1000.0;
-    var database = new PlacesDbContext();
     var latitude = double.Parse(args[0]);
     var longitude = double.Parse(args[1]);
     var includedTypes = args.Length > 2 ? args[2] : null;
     var googlePlacesApiKey = "AIzaSyCC4FEYyCYRPNsHLQ-BePcK1lpmKTDeoxk";
     var googlePlacesApi = new Uri ("https://places.googleapis.com/v1/places:searchNearby");
+    var database = new PlacesDbContext("Data Source=N:\\Repo\\places\\src\\places.data\\places.db");
 
 
     var requestData = new GooglePlacesRequest
@@ -55,6 +55,7 @@ if (args.Length >= 2)
         LocationName = p.name,
         Latitude = p.location.latitude,
         Longitude = p.location.longitude,
+        Type = p.primaryType,
         LocationData = JsonSerializer.Serialize(p)
 
     }).ToList();

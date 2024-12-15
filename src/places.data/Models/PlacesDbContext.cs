@@ -13,9 +13,12 @@ namespace places.data
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite(ConnectionString);
 
+        public PlacesDbContext(string connectionString)
+            => ConnectionString = connectionString;
         public PlacesDbContext()
             => ConnectionString = "Data Source=places.db";
         public PlacesDbContext(IConfiguration configuration)
             => ConnectionString = configuration.GetConnectionString("DefaultConnection")!;
+
     }
 }
