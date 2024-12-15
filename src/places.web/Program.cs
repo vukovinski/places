@@ -16,7 +16,7 @@ builder.Services.AddSignalR();
 var app = builder.Build();
 
 app.MapHub<SubscribersHub>("/subscribers");
-app.UseSynchronousAccess();
+//app.UseSynchronousAccess();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
