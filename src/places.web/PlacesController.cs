@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Microsoft.AspNetCore.SignalR;
 
 namespace places.web
 {
@@ -10,20 +9,32 @@ namespace places.web
     {
         private readonly IPlacesService _placesService;
         private readonly IRequestLogger _requestLogger;
+        private readonly IHubContext<SubscribersHub> _subscribersHub;
 
-        public PlacesController(IPlacesService placesService, IRequestLogger requestLogger)
+        public PlacesController(
+            IPlacesService placesService,
+            IRequestLogger requestLogger,
+            IHubContext<SubscribersHub> subscribersHub)
         {
             _placesService = placesService;
             _requestLogger = requestLogger;
+            _subscribersHub = subscribersHub;
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] PlacesWebRequest placesWebRequest)
         {
-            // TODO: Raise SingalR event
-            var response = _placesService.GetResponse(placesWebRequest);
-            _requestLogger.Log(placesWebRequest, response);
-            return Ok(response);
+            try
+            {
+                _subscribersHub.Clients.All.SendAsync("NewSearch", placesWebRequest.Latitude, placesWebRequest.Longitude);
+                var response = _placesService.GetResponse(placesWebRequest);
+                _requestLogger.Log(placesWebRequest, response);
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
     }
 }

@@ -8,8 +8,10 @@ builder.Services.AddTransient<PlacesDbContext>(sp =>
 builder.Services.AddTransient<IPlacesService, PlacesService>();
 builder.Services.AddTransient<IRequestLogger, RequestLogger>();
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
 var app = builder.Build();
 
+app.MapHub<SubscribersHub>("/subscribers");
 app.UseSynchronousAccess();
 app.MapControllers();
 app.Run();

@@ -26,7 +26,8 @@ namespace places.web
                 })
                 .Where(pwd => pwd.Distance < radius)
                 .Where(pwd => placesWebRequest.SearchTerm == null || pwd.Place.LocationName.Contains(placesWebRequest.SearchTerm))
-                .Where(pwd => placesWebRequest.Category == null || PlaceTypes.GetCategory(pwd.Place.Type) == placesWebRequest.Category) 
+                .Where(pwd => placesWebRequest.PlaceCategory == null || PlaceTypes.GetCategory(pwd.Place.Type) == placesWebRequest.PlaceCategory)
+                .Where(pwd => placesWebRequest.PlaceType == null || pwd.Place.Type == placesWebRequest.PlaceType)
                 .ToList();
 
             return new PlacesWebResponse
