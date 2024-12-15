@@ -52,7 +52,7 @@ if (args.Length >= 2)
     var places = response!.places.Select(p => new Place()
     {
         Id = p.id,
-        LocationName = p.name,
+        LocationName = p.displayName.text,
         Latitude = p.location.latitude,
         Longitude = p.location.longitude,
         Type = p.primaryType,
