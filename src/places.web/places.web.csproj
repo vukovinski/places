@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\places.data\places.data.csproj" />
+    <ProjectReference Include="..\places.lib\places.lib.csproj" />
+  </ItemGroup>
+
 </Project>
