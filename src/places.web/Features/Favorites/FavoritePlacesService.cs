@@ -29,7 +29,11 @@ namespace places.web
         public void UnmakeFavorite(UserAccount account, Place place)
         {
             var candidate = _dbContext.FavoritePlaces.FirstOrDefault(fp => fp.UserAccountId == account.Id && fp.PlaceId == place.Id);
-            if (candidate != null) _dbContext.FavoritePlaces.Remove(candidate);
+            if (candidate != null)
+            {
+                _dbContext.FavoritePlaces.Remove(candidate);
+                _dbContext.SaveChanges();
+            }
         }
     }
 
