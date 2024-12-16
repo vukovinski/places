@@ -36,8 +36,8 @@ namespace places.web
             {
                 return Task.FromResult(AuthenticateResult.Fail("Invalid API Key"));
             }
-
-            var claims = new[] { new Claim(ClaimTypes.Name, "ApiKeyUser") };
+            var user = possibleKeys.First(ua => ua.ApiKey == providedApiKey);
+            var claims = new[] { new Claim(ClaimTypes.Name, "ApiKeyUser"), new Claim(ClaimTypes.Sid, user.Id.ToString()) };
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);
