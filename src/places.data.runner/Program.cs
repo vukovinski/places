@@ -15,7 +15,7 @@ if (args.Length >= 2)
     var latitude = double.Parse(args[0]);
     var longitude = double.Parse(args[1]);
     var includedTypes = args.Length > 2 ? args[2] : null;
-    var googlePlacesApiKey = "AIzaSyCC4FEYyCYRPNsHLQ-BePcK1lpmKTDeoxk";
+    var googlePlacesApiKey = "REDACTED_GOOGLE_PLACES_API_KEY";
     var googlePlacesApi = new Uri ("https://places.googleapis.com/v1/places:searchNearby");
     var database = new PlacesDbContext("Data Source=N:\\Repo\\places\\src\\places.data\\places.db");
 
